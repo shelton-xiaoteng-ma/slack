@@ -43,7 +43,7 @@ export const useCreateWorkspace = () => {
         setStatus("error");
         options?.onError?.(error as Error);
       } finally {
-        setStatus("pending");
+        setStatus("settled");
         options?.onSettled?.();
       }
     },
