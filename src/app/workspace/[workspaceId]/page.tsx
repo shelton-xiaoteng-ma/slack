@@ -6,11 +6,7 @@ import { useWorkspaceId } from "@/hooks/use-workspace-id";
 const WorkspaceIdPage = () => {
   const workspaceId = useWorkspaceId();
   const { data } = useGetWrokspace({ id: workspaceId });
-  return (
-    <div>
-      ID: {workspaceId}, {JSON.stringify(data)}
-    </div>
-  );
+  return <div>ID: {workspaceId}</div>;
 };
 
 export default WorkspaceIdPage;
