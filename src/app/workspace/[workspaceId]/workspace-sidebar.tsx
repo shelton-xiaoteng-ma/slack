@@ -1,4 +1,4 @@
-import { UseGetChannels } from "@/features/channels/api/use-get-channels";
+import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useCreateChannelModal } from "@/features/channels/store/use-create-channel-modal";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useGetMembers } from "@/features/members/api/use-get-members";
@@ -26,7 +26,7 @@ export const WorkspaceSidebar = () => {
     id: workspaceId,
   });
 
-  const { data: channels, isLoading: channelsLoading } = UseGetChannels({
+  const { data: channels, isLoading: channelsLoading } = useGetChannels({
     workspaceId,
   });
 
