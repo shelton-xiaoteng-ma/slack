@@ -2,7 +2,7 @@ import { UseGetChannels } from "@/features/channels/api/use-get-channels";
 import { useCreateChannelModal } from "@/features/channels/store/use-create-channel-modal";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useGetMembers } from "@/features/members/api/use-get-members";
-import { useGetWrokspace } from "@/features/workspaces/api/use-get-workspace";
+import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import {
   AlertTriangle,
@@ -22,7 +22,7 @@ export const WorkspaceSidebar = () => {
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
   });
-  const { data: workspace, isLoading: workspaceLoading } = useGetWrokspace({
+  const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({
     id: workspaceId,
   });
 

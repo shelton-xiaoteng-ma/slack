@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useGetWrokspaceInfo } from "@/features/workspaces/api/use-get-workspace-info";
+import { useGetWorkspaceInfo } from "@/features/workspaces/api/use-get-workspace-info";
 import { useJoin } from "@/features/workspaces/api/use-join";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ import { toast } from "sonner";
 export default function Home() {
   const router = useRouter();
   const workspaceId = useWorkspaceId();
-  const { isLoading, data } = useGetWrokspaceInfo({ id: workspaceId });
+  const { isLoading, data } = useGetWorkspaceInfo({ id: workspaceId });
   const { mutate, isPending } = useJoin();
 
   const isMember = useMemo(() => data?.isMemeber, [data?.isMemeber]);

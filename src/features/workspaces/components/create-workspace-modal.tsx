@@ -12,13 +12,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useCreateWorkspace } from "../api/use-create-workspace";
-import { useCreateWrokspaceModal } from "../store/use-create-workspace-modal";
+import { useCreateWorkspaceModal } from "../store/use-create-workspace-modal";
 
-export const CreateWrokspaceModal = () => {
+export const CreateWorkspaceModal = () => {
   const router = useRouter();
   const [name, setName] = useState<string>("");
 
-  const [open, setOpen] = useCreateWrokspaceModal();
+  const [open, setOpen] = useCreateWorkspaceModal();
   const { mutate, isPending } = useCreateWorkspace();
 
   const handleClose = () => {

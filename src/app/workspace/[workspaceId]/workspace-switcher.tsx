@@ -5,24 +5,24 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useGetWrokspace } from "@/features/workspaces/api/use-get-workspace";
-import { useGetWrokspaces } from "@/features/workspaces/api/use-get-workspaces";
-import { useCreateWrokspaceModal } from "@/features/workspaces/store/use-create-workspace-modal";
+import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
+import { useGetWorkspaces } from "@/features/workspaces/api/use-get-workspaces";
+import { useCreateWorkspaceModal } from "@/features/workspaces/store/use-create-workspace-modal";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Loader, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export const WorkspaceSwitcher = () => {
-  const [_open, setOpen] = useCreateWrokspaceModal();
+  const [_open, setOpen] = useCreateWorkspaceModal();
 
   const router = useRouter();
 
   const workspaceId = useWorkspaceId();
-  const { data: workspace, isLoading: workspaceLoading } = useGetWrokspace({
+  const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({
     id: workspaceId,
   });
 
-  const { data: workspaces, isLoading: workspacesLoading } = useGetWrokspaces();
+  const { data: workspaces, isLoading: workspacesLoading } = useGetWorkspaces();
 
   const filterWorkspaces = workspaces?.filter(
     (workspace) => workspace._id !== workspaceId
