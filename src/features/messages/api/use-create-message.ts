@@ -16,6 +16,7 @@ type Options = {
   onSuccess?: (data: ResponseType) => void;
   onError?: (error: Error) => void;
   onSettled?: () => void;
+  throwError?: boolean;
 };
 
 export const useCreateMessage = () => {
@@ -48,6 +49,9 @@ export const useCreateMessage = () => {
       } catch (error) {
         setStatus("error");
         options?.onError?.(error as Error);
+        if (options?.throwError === true) {
+          throw error;
+        }
       } finally {
         setStatus("settled");
         options?.onSettled?.();
