@@ -111,7 +111,7 @@ export const get = query({
         await Promise.all(
           results.page.map(async (message) => {
             const member = await populateMember(ctx, message.memberId);
-            const user = member ? await populateUser(ctx, userId) : null;
+            const user = member ? await populateUser(ctx, member.userId) : null;
 
             if (!member || !user) {
               return null;
