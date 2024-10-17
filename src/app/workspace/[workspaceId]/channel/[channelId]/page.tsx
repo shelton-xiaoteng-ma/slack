@@ -1,5 +1,6 @@
 "use client";
 
+import { MessageList } from "@/components/message-list";
 import { useGetChannel } from "@/features/channels/api/use-get-channel";
 import { useGetMessages } from "@/features/messages/api/use-get-messages";
 import { useChannelId } from "@/hooks/use-channel-id";
@@ -17,7 +18,7 @@ const ChannelIdPage = () => {
     id: channelId,
   });
 
-  if (channelLoading) {
+  if (channelLoading || status === "LoadingFirstPage") {
     return (
       <div className="h-full flex flex-1 items-center justify-center">
         <Loader className="size-6 animate-spin text-muted-foreground" />
@@ -35,7 +36,14 @@ const ChannelIdPage = () => {
   return (
     <div className="h-full flex flex-col">
       <Header title={channel.name} />
-      <div className="flex-1">{JSON.stringify(results)}</div>
+      <MessageList
+        channelName={channel.name}
+        channelCreationTime={channel._creationTime}
+        data={results}
+        loadMore={loadMore}
+        isLoadingMore={status === "LoadingMore"}
+        canLoadMore={status === "CanLoadMore"}
+      ></MessageList>
       <ChatInput placeholder={`Message # ${channel.name}`} />
     </div>
   );
