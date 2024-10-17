@@ -15,12 +15,14 @@ interface MessageProps {
   authorImage?: string;
   authorName?: string;
   isAuthor: boolean;
-  reactions?: Array<
-    Omit<Doc<"reactions">, "memberId"> & {
-      count: number;
-      memberIds: Id<"members">[];
-    }
-  >;
+  reactions?:
+    | Array<
+        Omit<Doc<"reactions">, "memberId"> & {
+          count: number;
+          memberIds: Id<"members">[];
+        }
+      >
+    | void[];
   body: Doc<"messages">["body"];
   image: string | null | undefined;
   updatedAt: Doc<"messages">["_creationTime"] | undefined;
