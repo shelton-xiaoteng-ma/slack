@@ -49,7 +49,7 @@ export const EmojiPopover = ({
             <p className="font-medium text-xs">{hint}</p>
           </TooltipContent>
         </Tooltip>
-        <PopoverContent className="p-0 w-full border-none shadow-none">
+        <PopoverContent className="p-0 w-full border-none shadow-none z-10">
           <Picker data={data} onEmojiSelect={onSelect} />
         </PopoverContent>
       </Popover>
