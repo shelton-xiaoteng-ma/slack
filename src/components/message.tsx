@@ -233,7 +233,9 @@ export const Message = ({
               {updatedAt ? (
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
-              <Reactions data={reactions} onChange={handleReaction} />
+              {!reactions && reactions != undefined && (
+                <Reactions data={reactions} onChange={handleReaction} />
+              )}
             </div>
           )}
           {isEditing && (
