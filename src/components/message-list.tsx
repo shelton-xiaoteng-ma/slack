@@ -29,20 +29,20 @@ const formatDateLabel = (dateString: string) => {
 };
 
 export const MessageList = ({
-  memberName,
-  memberImage,
+  // memberName,
+  // memberImage,
   channelName,
   channelCreationTime,
   variant,
   data,
-  loadMore,
-  isLoadingMore,
-  canLoadMore,
+  // loadMore,
+  // isLoadingMore,
+  // canLoadMore,
 }: MessageListProps) => {
   const [editingId, seteditingId] = useState<Id<"messages"> | null>(null);
 
   const workspaceId = useWorkspaceId();
-  const { data: currentMember, isLoading } = useCurrentMember({ workspaceId });
+  const { data: currentMember } = useCurrentMember({ workspaceId });
 
   const groupedMessages = data?.reduce(
     (groups, message) => {

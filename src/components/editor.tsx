@@ -81,7 +81,7 @@ const Editor = ({
               key: "Enter",
               handler: () => {
                 //TODO: Submit form
-                const text = quill.getText();
+                // const text = quill.getText();
                 const addedImage = imageElementRef.current?.files?.[0] || null;
 
                 const isEmpty =

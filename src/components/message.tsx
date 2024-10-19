@@ -50,9 +50,9 @@ const formatFullTime = (date: Date) => {
 };
 
 export const Message = ({
-  key,
+  // key,
   id,
-  memberId,
+  // memberId,
   authorImage,
   authorName = "Member",
   isAuthor,
@@ -65,9 +65,9 @@ export const Message = ({
   isCompact,
   seteditingId,
   hideThreadButton,
-  threadCount,
-  threadImage,
-  threadTimestamp,
+  // threadCount,
+  // threadImage,
+  // threadTimestamp,
 }: MessageProps) => {
   const [ConfirmDialog, confirm] = UseConfirm(
     "Delete Message",

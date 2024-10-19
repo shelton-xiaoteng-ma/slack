@@ -32,7 +32,7 @@ export const WorkspaceSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="size-9 relative overflow-hidden bg-[#ABABAB] hover:bg-[#ABABAB]/80 text-slate-800 font-semibold text-xl">
-          {workspaceLoading ? (
+          {workspaceLoading || workspacesLoading ? (
             <Loader className="size-5 animate-spin shrink-0" />
           ) : (
             workspace?.name.charAt(0).toUpperCase()
@@ -64,6 +64,7 @@ export const WorkspaceSwitcher = () => {
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => {
+            _open;
             setOpen(true);
           }}
         >

@@ -28,11 +28,11 @@ export const WorkspaceSidebar = () => {
     id: workspaceId,
   });
 
-  const { data: channels, isLoading: channelsLoading } = useGetChannels({
+  const { data: channels } = useGetChannels({
     workspaceId,
   });
 
-  const { data: members, isLoading: membersLoading } = useGetMembers({
+  const { data: members } = useGetMembers({
     workspaceId,
   });
 
@@ -77,6 +77,7 @@ export const WorkspaceSidebar = () => {
         hint="New channel"
         onNew={member.role === "admin" ? () => setOpen(true) : undefined}
       >
+        {open}
         {channels?.map((item) => (
           <SidebarItem
             id={item._id}

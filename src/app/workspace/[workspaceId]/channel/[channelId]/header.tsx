@@ -36,8 +36,7 @@ export const Header = ({ title }: HeaderProps) => {
   const [editorOpen, setEditorOpen] = useState(false);
   const { mutate: updateChannel, isPending: isUpdatingChannel } =
     useUpdateChannel();
-  const { mutate: removeChannel, isPending: isRemovingChannel } =
-    useRemoveChannel();
+  const { mutate: removeChannel } = useRemoveChannel();
 
   const [ConfirmDialog, confirm] = UseConfirm(
     "Delete this channel?",
@@ -64,7 +63,7 @@ export const Header = ({ title }: HeaderProps) => {
     updateChannel(
       { name: value, id: channelId },
       {
-        onSuccess: (channelId) => {
+        onSuccess: () => {
           // redirect to new channel
           handleClose();
           toast.success("Channel updated");
