@@ -28,7 +28,7 @@ export const Reactions = ({ data, onChange }: ReactionsProps) => {
     <div className="flex items-center gap-1 my-1">
       {data.map((reaction) => {
         return (
-          <div>
+          <div key={reaction._id}>
             <Hint
               key={reaction._id}
               label={`${reaction.count} ${reaction.count === 1 ? "person" : "people"} reacted with ${reaction.value}`}
