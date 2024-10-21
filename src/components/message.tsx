@@ -24,14 +24,12 @@ interface MessageProps {
   authorImage?: string;
   authorName?: string;
   isAuthor: boolean;
-  reactions?:
-    | Array<
-        Omit<Doc<"reactions">, "memberId"> & {
-          count: number;
-          memberIds: Id<"members">[];
-        }
-      >
-    | void[];
+  reactions?: Array<
+    Omit<Doc<"reactions">, "memberId"> & {
+      count: number;
+      memberIds: Id<"members">[];
+    }
+  >;
   body: Doc<"messages">["body"];
   image: string | null | undefined;
   updatedAt: Doc<"messages">["_creationTime"] | undefined;
@@ -172,7 +170,7 @@ export const Message = ({
                     (edited)
                   </span>
                 ) : null}
-                {!reactions && reactions != undefined && (
+                {reactions && (
                   <Reactions data={reactions} onChange={handleReaction} />
                 )}
               </div>
@@ -233,7 +231,7 @@ export const Message = ({
               {updatedAt ? (
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
-              {!reactions && reactions != undefined && (
+              {reactions && (
                 <Reactions data={reactions} onChange={handleReaction} />
               )}
             </div>
